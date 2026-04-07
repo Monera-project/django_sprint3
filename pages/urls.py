@@ -1,9 +1,9 @@
-from django.shortcuts import render
+from django.urls import path
+from . import views
 
+app_name = 'pages'
 
-def about(request):
-    return render(request, 'pages/about.html')
-
-
-def rules(request):
-    return render(request, 'pages/rules.html')
+urlpatterns = [
+    path('about/', views.about, name='about'),
+    path('rules/', views.rules, name='rules'),
+]
