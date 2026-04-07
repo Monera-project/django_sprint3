@@ -17,10 +17,10 @@ def index(request):
     return render(request, 'blog/index.html', {'post_list': post_list})
 
 
-def post_detail(request, post_id):
+def post_detail(request, id):  # ← параметр называется id, как в urls.py
     post = get_object_or_404(
         Post,
-        id=post_id,
+        id=id,  # ← используем id
         is_published=True,
         pub_date__lte=timezone.now(),
         category__is_published=True
